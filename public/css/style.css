@@ -1,3 +1,70 @@
+
+
+html{
+    font-family: 'arial';
+    font-size: 16px;
+}
+
+#hero{
+    background: url('../img/fond_01.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100% 
+}
+
+nav{
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+#bandeau{
+   margin-top: 10%;
+   margin-bottom: 10%;
+   background-color: rgba(255,255,255,0.5);
+        
+}
+
+
+#contenu{
+    text-align: center;
+    padding: 2%;
+}
+#contenu a{
+    color : blue;
+    border : 1px solid red;
+    border-radius: 15px;
+    padding: 20px;
+    transition:ease 1s;
+    background-color:blue ;
+}
+#contenu a:hover{
+    color:white;
+    background-color: rgba(178,32,19,0.8);
+}
+
+#contenu img:hover{
+    transform: rotate(360deg) scale(1.5);
+}
+
+nav{
+    border : 1px solid red;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    padding-bottom: 20px;
+    
+}
+
+a{
+    color:white;
+    text-decoration: none;
+    padding:20px;
+    transition: 1s;
+}
+
+a:hover{
+    color: red;
+}
+
 table img{
 	width: 7rem;
 }

@@ -1,5 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>futur page admin</h1>
-{% endblock %}
+<div class="row">
+		<div class="col">
+			<h1>Accueil administration</h1>
+			<p>Votre email est : {{ app.user.email }}</p>
+			
+			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				
+				<p><a href="{{ logout_url() }}" class="btn btn-danger">Déconnexion</a></p>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}block %}
