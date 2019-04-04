@@ -15,8 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class GamecoolController extends AbstractController
 {
-    /**
+    /* 
      * @Route("/", name="gamecools.index")
+     */
+	/**  
+     * @Route("/gamecools", name="gamecools")
      */
     public function index(JeuxvideoRepository $jeuxvideoRepository):Response
     {
@@ -29,7 +32,24 @@ class GamecoolController extends AbstractController
         ]);
     }
 
-    /**
+
+	 /**
+     * @Route("/", name="home")
+     */
+
+    public function home(){
+        return $this->render('gamecool/home.html.twig', [
+            'title' => "Bienvenue les amis !",
+            'age' => 31
+
+        ]);
+    }
+
+	
+	
+	
+	
+	/**
      * @Route("/product/{id}", name="product.details")
      */
     public function details(int $id, JeuxvideoRepository $jeuxvideoRepository):Response
