@@ -10,12 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomepageController extends AbstractController
 {
 /**
- * @Route("/admin/"), name="admin.homepage.index")
+ * @Route("/admin/", name="admin.homepage.index")
  */
-
-
-
-
 public function index():Response
 {
             return $this->render('admin/homepage/index.html.twig');
