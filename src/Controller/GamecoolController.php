@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Jeuxvideo;
+use App\Entity\Jeuxvideo; 
 use App\Form\GamecoolType;
 use App\Repository\JeuxvideoRepository;
 use App\Service\FileService;
