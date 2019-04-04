@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-sm-4">
+			<img src="{{ asset('img/' ~ result.image) }}" class="img-fluid" alt="">
+		</div>
+		<div class="col-sm-8">
+			<h2>{{ result.name | capitalize }}</h2>
+			<p>{{ result.description  | capitalize }}</p>
+			<p>
+				<span class="font-weight-bold">Prix:</span>
+				{{ result.price | number_format(2, ',', ' ') }}€
+			</p>
+			<p>
+				<a href="{{ url('gamecools.index') }}" class="btn btn-primary">Retour</a>
+			</p>
+		</div>
+	</div>
+	<div class="row mt-3">
+		<div class="col">
+			<h4>Ajouter un commentaire</h4>
+			<form method="post" class="form-comment">
+				<p>
+					<textarea name="content" class="form-control"></textarea>
+				</p>
+				<p>
+					{# champ caché pour stocker l'identifiant du produit #}
+					<input type="hidden" name="id" value="{{ result.id }}">
+					<button type="submit" class="btn btn-info">Valider</button>
+				</p>
+			</form>
+			<div class="comment-list">
+				{# affichage des commentaires #}
+				{% for comment in result.comments %}
+					<hr>
+					<p>{{ comment.content }}</p>
+					<time class="font-italic text-black-50">
+						Posté le {{ comment.datetime | date('d/m/Y') }}
+						à {{ comment.datetime | date('H:i:s') }}
+					</time>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{#
+{% block javascripts %}
+	<script src="{{ asset('js/formComment.js') }}"></script>
+{% endblock %}
+#}

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{# ajout d'un fichier css spécifique à la page #}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col">
+			<h1>Produits</h1>
+			{#
+				app: variable twig permet d'accéder à certaines informations de l'application
+					app.environment : environnement
+					app.request : requête http
+					app.session : session
+					app.user : utilisateur si connecté
+				app.flashes(clé) : affichage du message flash du formulaire
+			#}
+			{% include 'inc/flash.messages.html.twig' %}
+
+			<p class="text-right">
+				<a href="{{ url('product.form') }}" class="btn btn-primary">Ajouter</a>
+			</p>
+
+			<table class="table table-striped">
+				<tr>
+					<th>Nom</th>
+					<th>Description</th>
+					<th>Image</th>
+					<th>Actions</th>
+				</tr>
+				{% for jeuxvideo in results %}
+					<tr>
+						<td>{{ jeuxvideo.titre | capitalize }}</td>
+						<td>{{ jeuxvideo.description | capitalize }}</td>
+						<td>
+							<img src="{{ asset('img/' ~ jeuxvideo.image) }}" alt="">
+						</td
+                                                
+						
+						<td>
+							{#
+								création de la route
+									id: nom de la variable d'url utilisée dans la route
+									product: nom de la variable utilisée par la boucle for
+									product.id: propriété id de l'entité
+							 #}
+							<a href="{{ url('product.details', { id: jeuxvideo.id }) }}" class="btn btn-info">
+								Consulter
+							</a>
+							<a href="{{ url('product.update', { id: jeuxvideo.id }) }}" class="btn btn-warning">
+								Modifier
+							</a>
+							<a href="{{ url('gamecool.delete', { id: jeuxvideo.id }) }}" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+								Supprimer
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+	{# inclusion de la fenêtre modale #}
+	{% include 'inc/modal.html.twig' %}
+{% endblock %}
+
+{# bloc javascripts #}
+{% block javascripts %}
+	<script src="{{ asset('js/confirmDeleteModal.js') }}"></script>
+	<script src="{{ asset('js/deleteConfirmAlert.js') }}"></script>
+{% endblock %}

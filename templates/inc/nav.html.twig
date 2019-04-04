@@ -1,0 +1,19 @@
+<div class="row bg-primary">
+    <div class="col">navigation</div>
+</div>
+
+{#
+    si extends est utilisé : obligatoire de créer du contenu dans un bloc
+#}
+
+{% block aside %}
+    <aside class="col-3 bg-secondary">
+        aside
+    </aside>
+    {%endblock%}
+    
+    {% block main %}
+        <main class="col-9 bg-info">
+              main
+    </main>
+    {% endblock%}

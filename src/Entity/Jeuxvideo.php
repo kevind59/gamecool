@@ -55,12 +55,12 @@ class Jeuxvideo
         return $this;
     }
 
-    public function getDescription(): ?text
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function setDescription(text $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
